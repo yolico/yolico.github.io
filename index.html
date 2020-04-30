@@ -94,24 +94,8 @@
             
               
                 <li>
-                  <a href="https://weibo.com/" target="_blank" class="social-github" title="sina">
-                    <img src="https://yolico.oss-cn-beijing.aliyuncs.com/icon/sina.png">
-                  </a>
-                </li>
-              
-            
-              
-                <li>
                   <a href="https://music.163.com/" target="_blank" class="social-github" title="wangyiyun">
                     <img src="https://yolico.oss-cn-beijing.aliyuncs.com/icon/wangyiyun.png">
-                  </a>
-                </li>
-              
-            
-              
-                <li>
-                  <a href="https://www.zhihu.com/" target="_blank" class="social-github" title="zhihu">
-                    <img src="https://yolico.oss-cn-beijing.aliyuncs.com/icon/zhihu.png">
                   </a>
                 </li>
               
@@ -229,21 +213,21 @@
                       </li>
                     
                       <li>
-                        <a href="/live/">
+                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/resources/">
+                        <a href="/categories/%E8%B5%84%E6%BA%90/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/reprint/">
+                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -400,7 +384,7 @@
   <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
   <i class="fa fa-anchor" aria-hidden="true">
   </i>
-  START:DASH!!</h1>
+  业余爱好  ---(*^▽^*)</h1>
   
   <div class="top-feature-v2">
     <div class="the-feature square from_left_and_right">
@@ -449,12 +433,51 @@
     <main id="main" class="site-main" role="main">
       <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
       <i class="fa fa-envira" aria-hidden="true"></i>
-      Discovery</h1>
+      发现  --╰(*°▽°*)╯</h1>
       
   <!-- 首页默认取最最新文章集 -->
   
     
 <article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+
+  <div class="post-thumb">
+    <a href="/2020/04/30/secend/">
+      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>2020-4-30 09:04</div>
+      <a href="/2020/04/30/secend/" class="post-title">
+        <h3>secend</h3>
+      </a>
+      <div class="post-meta">
+        <span><i class="fa fa-tags"></i>
+        
+        </span>
+        <span>
+          <i class="iconfont icon-file"></i>
+          
+            <a href="/categories/%E8%B5%84%E6%BA%90/">资源</a>
+          
+        </span>
+      </div>
+      <div class="float-content">
+        <p></p>
+        <div class="post-bottom">
+          <a href="/2020/04/30/secend/" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+  
+    
+<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
 
   <div class="post-thumb">
     <a href="/2020/04/29/H5%E8%B7%AF%E7%94%B1/">
@@ -480,7 +503,7 @@
         <span>
           <i class="iconfont icon-file"></i>
           
-            <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+            <a href="/categories/%E8%BD%AC%E8%BD%BD/">转载</a>
           
         </span>
       </div>
@@ -510,7 +533,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -522,10 +545,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -567,6 +590,7 @@
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script type="text/javascript" src="/js/InsightSearch.js"></script>
 <script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/velocity.min.js"></script>
 <script type="text/javascript" src="/js/zoom.min.js"></script>
 <script type="text/javascript" src="/js/sakura-app.js"></script>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
@@ -635,6 +659,30 @@ $(document).ready(function() {
       </div>
     </div>
   </section>
+  <!-- 实现换肤功能 -->
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed">
+    <div class="theme-controls row-container">
+     <ul class="menu-list">
+      <li id="white-bg"> <i class="fa fa-television" aria-hidden="true"></i></li>
+      <li id="sakura-bg"> <i class="iconfont icon-sakura"></i></li>
+      <li id="gribs-bg"> <i class="fa fa-slack" aria-hidden="true"></i></li>
+      <li id="KAdots-bg"> <i class="iconfont icon-dots"></i></li>
+      <li id="totem-bg"> <i class="fa fa-optin-monster" aria-hidden="true"></i></li>
+      <li id="pixiv-bg"> <i class="iconfont icon-pixiv"></i></li>
+      <li id="bing-bg"> <i class="iconfont icon-bing"></i></li>
+      <li id="dark-bg"> <i class="fa fa-moon-o" aria-hidden="true"></i></li>
+     </ul>
+    </div>
+   </div>
+   <canvas id="night-mode-cover"></canvas>
+    
+  <div class="changeSkin-gear no-select">
+    <div class="keys" id="setbtn"> 
+     <span id="open-skinMenu"> 切换主题 | SCHEME TOOL  
+       <i class="iconfont icon-gear inline-block rotating"></i> 
+     </span>
+    </div>
+  </div>
   <div id="mo-nav" class="">
   <div class="m-avatar">
     <img src="https://yolico.oss-cn-beijing.aliyuncs.com/yolico/avatar.png">
@@ -681,21 +729,21 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/live/">
+                <a href="/categories/%E7%94%9F%E6%B4%BB/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/resources/">
+                <a href="/categories/%E8%B5%84%E6%BA%90/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/reprint/">
+                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>
@@ -868,7 +916,7 @@ $(document).ready(function() {
 </style>
 <meting-js
 
-    id="2660651585"
+    id="703506995"
 
     server="netease"
 

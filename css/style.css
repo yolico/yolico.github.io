@@ -7283,6 +7283,9 @@ to {
     box-shadow:20px 0 #fdbc40,40px 0 #35cd4b;
     z-index:2
 }
+#sakura {
+    pointer-events: none
+}
 .highlight-wrap {
     position: relative;
     background:#fff;
