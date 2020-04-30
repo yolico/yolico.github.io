@@ -1698,7 +1698,7 @@ _ua.Mobile || _ua.Tablet ? $("html").addClass("sp") : $("html").addClass("pc"),
                   });
               for (var timer = !1, sakuNum = 30, sakuHight = $("#sakura").height(), sakuWidth = 1.2 * $("#sakura").width(), i = 0; i < 30; i++) {
                   var className = "chip" + i;
-                  $("body").hasClass("home") ? preload("commons/img/petal1.png", "commons/img/petal2.png", "commons/img/petal3.png", "commons/img/petal4.png", "commons/img/petal5.png") : preload("../commons/img/petal1.png", "../commons/img/petal2.png", "../commons/img/petal3.png", "../commons/img/petal4.png", "../commons/img/petal5.png"),
+                  $("body").hasClass("home") ? '' : preload("/commons/img/petal1.png", "/images/commons/img/petal2.png", "/images/commons/img/petal3.png", "/images/commons/img/petal4.png", "/images/commons/img/petal5.png"),
                       addChip(className)
               }
               function preload() {
@@ -1713,7 +1713,7 @@ _ua.Mobile || _ua.Tablet ? $("html").addClass("sp") : $("html").addClass("pc"),
                           }, 200)
                   });
                   var valx = Math.random(), valy = Math.random(), valz = Math.floor(5 * Math.random()) + 1, chipX = valx * sakuWidth;
-                  $("body").hasClass("home") ? $("#sakura").append("<div class=" + chipClass + "><img src='commons/img/petal" + valz + ".png'></div>") : $("#sakura").append("<div class=" + chipClass + "><img src='/commons/img/petal" + valz + ".png'></div>"),
+                  $("body").hasClass("home") ? '' : $("#sakura").append("<div class=" + chipClass + "><img src='/images/commons/img/petal" + valz + ".png'></div>"),
                       $("." + chipClass).css({
                           position: "absolute",
                           left: chipX,
