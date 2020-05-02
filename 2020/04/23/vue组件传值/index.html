@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">archive_a: 2020 | yolico</title>
+  <title itemprop="name">vue组件传值 | yolico</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -371,78 +371,243 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 75px;">
-</div>
-<div id="content" class="site-content">
-  <div id="main">
-    <header class="page-header">
-      <h1 class="cat-title">
-      归档</h1>
-      <span class="cat-des">
-        <p>
-        Archives</p>
-      </span>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://yolico.oss-cn-beijing.aliyuncs.com/article/article2.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://yolico.oss-cn-beijing.aliyuncs.com/article/article2.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      vue组件传值</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="https://yolico.oss-cn-beijing.aliyuncs.com/yolico/avatar.png">
+          </a>
+        </span>
+        <span>
+          <a href="">yolico</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-4-23<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
-    <div id="main-part">
-      <article class="art">
-        <div class="art-main">
-          <div class="art-content">
-            <div id="archives">
-              <p style="text-align:right;">
-                [<span id="al_expand_collapse" style="cursor: s-resize;">
-                全部展开/收缩</span>
-              ]</p>
-              
-              
-              
-              
-              
-                
-                <h3 class="al_year">2020年</h3>
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      04月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2020/04/23/vue%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/">
-                          <span style="color:#0bf;">
-                          23日14:48:05</span>
-                          vue组件传值
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2020/04/20/H5%E8%B7%AF%E7%94%B1/">
-                          <span style="color:#0bf;">
-                          20日16:48:19</span>
-                          H5路由
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <p>我们一般经常见到的组件传值方式除了props,$emit,订阅发布模式,vuex以外还有一些其他我们不常用到的方式</p>
+<h2 id="1-父向子传值-props"><a href="#1-父向子传值-props" class="headerlink" title="1 父向子传值 props"></a>1 父向子传值 props</h2><pre><code>父亲 &lt;zujian titile=&quot;&quot; :id=&quot;&apos;xxx&apos;&quot; ..
+儿子 props: {title: String, id: {type: Number, default: 1}}或props: [&apos;title&apos;, &apos;id&apos;]
+推荐props: {}这种方式接受属性 可以对接受的值进行数据校验</code></pre><h2 id="2-子向父传值（父亲像儿子传递一个函数-儿子调用同时传递参数或发布订阅模式）"><a href="#2-子向父传值（父亲像儿子传递一个函数-儿子调用同时传递参数或发布订阅模式）" class="headerlink" title="2 子向父传值（父亲像儿子传递一个函数 儿子调用同时传递参数或发布订阅模式）"></a>2 子向父传值（父亲像儿子传递一个函数 儿子调用同时传递参数或发布订阅模式）</h2><pre><code>父亲 &lt;zujian v-on:约定名字=&quot;函数&quot; 在methods中定义回调函数 形参就是子组件传递过来的值
+儿子 this.$emit(约定名字, 实参)</code></pre><h2 id="3-事件中心-非父子"><a href="#3-事件中心-非父子" class="headerlink" title="3 事件中心 (非父子)"></a>3 事件中心 (非父子)</h2><pre><code>创建事件中心 var bus = new Vue()
+通过事件中心订阅 bus.$on(&apos;公众号id&apos;, (v) =&gt; { // v形参}) // 接收数据
+通过事件中心发布 bus.$emit(&apos;公众号id&apos;, 实参消息)    // 发射数据</code></pre><h2 id="4-vuex"><a href="#4-vuex" class="headerlink" title="4 vuex"></a>4 vuex</h2><p><img src="https://yolico.oss-cn-beijing.aliyuncs.com/article/vuex.png" alt="vuex图解"><br>Vuex实现了一个单向数据流，在全局拥有一个State存放数据，当组件要更改State中的数据时，必须通过Mutation进行，Mutation同时提供了订阅者模式供外部插件调用获取State数据的更新。而当所有异步操作(常见于调用后端接口异步获取更新数据)或批量的同步操作需要走Action，但Action也是无法直接修改State的，还是需要通过Mutation来修改State的数据。最后，根据State的变化，渲染到视图上。</p>
+<h3 id="各模块在流程中的功能："><a href="#各模块在流程中的功能：" class="headerlink" title="各模块在流程中的功能："></a>各模块在流程中的功能：</h3><ul>
+<li>Vue Components：Vue组件。HTML页面上，负责接收用户操作等交互行为，执行dispatch方法触发对应action进行回应。</li>
+<li>dispatch：操作行为触发方法，是唯一能执行action的方法。</li>
+<li>actions：操作行为处理模块,由组件中的$store.dispatch(‘action 名称’, data1)来触发。然后由commit()来触发mutation的调用 , 间接更新 state。负责处理Vue Components接收到的所有交互行为。包含同步/异步操作，支持多个同名方法，按照注册的顺序依次触发。向后台API请求的操作就在这个模块中进行，包括触发其他action以及提交mutation的操作。该模块提供了Promise的封装，以支持action的链式触发。</li>
+<li>commit：状态改变提交操作方法。对mutation进行提交，是唯一能执行mutation的方法。</li>
+<li>mutations：状态改变操作方法，由actions中的commit(‘mutation 名称’)来触发。是Vuex修改state的唯一推荐方法。该方法只能进行同步操作，且方法名只能全局唯一。操作之中会有一些hook暴露出来，以进行state的监控等。</li>
+<li>state：页面状态管理容器对象。集中存储Vue components中data对象的零散数据，全局唯一，以进行统一的状态管理。页面显示所需的数据从该对象中进行读取，利用Vue的细粒度数据响应机制来进行高效的状态更新。</li>
+<li>getters：state对象读取方法。图中没有单独列出该模块，应该被包含在了render中，Vue Components通过该方法读取全局state对象。</li>
+</ul>
+<h2 id="5-attrs-listeners-A嵌套B组件-B组件又嵌套C组件-A组件传递属性给C组件"><a href="#5-attrs-listeners-A嵌套B组件-B组件又嵌套C组件-A组件传递属性给C组件" class="headerlink" title="5 $attrs/$listeners (A嵌套B组件 B组件又嵌套C组件 A组件传递属性给C组件)"></a>5 $attrs/$listeners (A嵌套B组件 B组件又嵌套C组件 A组件传递属性给C组件)</h2><p>v-bind=”$attrs”  //可以通过$attrs把接受到的属性继续往下传递<br>v-on=”$listeners”  //可以通过$listeners把事件传递下去</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+    &lt;!-- A嵌套B组件 B组件又嵌套C组件 --&gt;
+    &lt;a-component&gt;&lt;/a-component&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    // a组件
+    Vue.component(&apos;a-component&apos;, {
+        data() {
+            return {
+                message: `我是a组件`
+            }
+        },
+        template: `&lt;div&gt;
+            我是A组件
+            &lt;b-component name=&quot;三毛&quot; :tob=&quot;message&quot; v-on:aa=&quot;aHandler&quot;&gt;&lt;/b-component&gt;
+            &lt;/div&gt;`,
+        methods: {
+            aHandler (v) {
+                console.log(v, &apos;C组件给A组件传值了&apos;)
+            }
+        }
+    })
+    // b组件
+    Vue.component(&apos;b-component&apos;, {
+        props: [&apos;name&apos;], // 如果想让属性传递下去这里不能通过props接受
+            template: `&lt;div&gt;
+            我是B组件--
+            &lt;c-component v-bind=&quot;$attrs&quot; v-on=&quot;$listeners&quot;&gt;&lt;/c-component&gt;
+            &lt;/div&gt;`
+    })
+    // c组件
+    Vue.component(&apos;c-component&apos;, {
+        template: `&lt;div&gt;我是C组件--{{$attrs}}--&lt;button @click=&quot;$emit(&apos;aa&apos;, &apos;cccc&apos;)&quot;&gt;
+        给A组件传值&lt;/button&gt;&lt;/div&gt;`
+    })
+    var vm = new Vue({
+        el: &apos;#app&apos;
+    })
+&lt;/script&gt;</code></pre><h2 id="6-provide-inject-后代传值"><a href="#6-provide-inject-后代传值" class="headerlink" title="6 provide inject (后代传值)"></a>6 provide inject (后代传值)</h2><p>通过provide 注入原始数据 (用法基本和data是一致的)<br>通过inject接受 (和props用法基本上是一一致)</p>
+<pre><code>组件a
+provide () {
+    return {
+        P: this.a // 通过获取自己data中数据然后将其注入给后代
+    }
+}
+
+组件b
+inject: [&apos;P&apos;],
+template: `&lt;div&gt;
+我是B组件--{{P}}
+&lt;c-component&gt;&lt;/c-component&gt;
+&lt;/div&gt;`
+
+组件c
+inject: [&apos;P&apos;],
+template: `&lt;div&gt;我是C组件--{{P}}&lt;/div&gt;`</code></pre><h2 id="7-parent和-children-访问父-子实例"><a href="#7-parent和-children-访问父-子实例" class="headerlink" title="7 $parent和$children (访问父 / 子实例)"></a>7 $parent和$children (访问父 / 子实例)</h2><p>这种事通过访问实例,然后访问属性的方式,所以,当你只想要其中的属性值时,这种方式就会造成浪费了</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+    &lt;!-- A嵌套B组件 B组件又嵌套C组件, --&gt;
+    &lt;a-component&gt;&lt;/a-component&gt;
+&lt;/div&gt;
+
+// c组件
+Vue.component(&apos;c-component&apos;, {
+data() {
+  return {
+    cc: &apos;这是c组件数据&apos;
+  }
+},
+template: `&lt;div&gt;我是C组件--&lt;button @click=&quot;getRootValue&quot;&gt;获取vm属性值&lt;/button&gt;&lt;/div&gt;`,
+methods: {
+  getRootValue () {
+    // console.log(this.$parent.$parent.$parent.message) // 这里快速的获取了
+    console.log(this.$root.message) // 这里快速的获取了
+  }
+},
+
+var vm = new Vue({
+data: {
+  message: &apos;abc&apos;
+},
+el: &apos;#app&apos;,
+// 这里比如我想在获取子组件数据
+mounted() {
+  // 这里不一定生命周期 点击的都可以
+  // console.log(this.$children) // 获取子组件集合
+  // console.log(this.$children[0].$children[0].$children[0]) // 获取C组件
+  console.log(this.$children[0].$children[0].$children[0].cc) // 获取C组件
+}</code></pre><p>  })</p>
+<h2 id="8-refs-ref"><a href="#8-refs-ref" class="headerlink" title="8 $refs/ref"></a>8 $refs/ref</h2><pre><code>&lt;div id=&quot;app&quot;&gt;
+    &lt;!-- A嵌套B组件 B组件又嵌套C组件 --&gt;
+    &lt;a-component ref=&quot;myRefA&quot;&gt;&lt;/a-component&gt;
+    &lt;hr&gt;
+    &lt;c-component ref=&quot;myRefC&quot;&gt;&lt;/c-component&gt;
+&lt;/div&gt;
+
+// a,b组件同上
+c组件
+data() {
+  return {
+    cc: &apos;数据c&apos;
+  }
+},
+
+var vm = new Vue({
+    el: &apos;#app&apos;,
+    mounted () {
+    console.log(this.$refs.myRefC) // 这种方式可以获页面中的额dom或组件
+    console.log(this.$refs.myRefC.cc) // 获取组件中的属性
+    }
+})</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>常见使用场景可以分为三类：</p>
+<p>父子通信：<br>    父向子传递数据是通过 props，子向父是通过 events（$emit）；<br>    通过父链 / 子链也可以通信（$parent / $children）；<br>    ref 也可以访问组件实例；<br>    provide / inject；<br>    $attrs/$listeners</p>
+<p>兄弟通信：<br>    Bus；Vuex</p>
+<p>跨级通信：<br>    Bus；Vuex；provide / inject; $attrs/$listeners</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://yolico.oss-cn-beijing.aliyuncs.com/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://yolico.oss-cn-beijing.aliyuncs.com/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
             </div>
           </div>
         </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
       </article>
-    </div>
-  </div>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2020/04/20/H5%E8%B7%AF%E7%94%B1/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://yolico.oss-cn-beijing.aliyuncs.com/article/article1.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://yolico.oss-cn-beijing.aliyuncs.com/article/article1.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                H5路由</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz",
+        appKey: "mgOpfzbkHYqU92CV4IDlAUHQ",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="https://yolico.oss-cn-beijing.aliyuncs.com/yolico/avatar.png" itemprop="image" alt="yolico" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author">yolico</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>一个正在努力的人</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
 
     </div>    
     <div class="ins-search">

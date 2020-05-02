@@ -393,7 +393,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2020-4-29<span class="bull">
+        2020-4-20<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -407,10 +407,111 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="H5-路由的两种实现"><a href="#H5-路由的两种实现" class="headerlink" title="H5 路由的两种实现"></a>H5 路由的两种实现</h2><h3 id="hash模式"><a href="#hash模式" class="headerlink" title="hash模式"></a>hash模式</h3><p>如果a标签的href属性以”#”开头，那么当点击这个a标签时就会触发hashchange事件，在该事件处理函数中可以做很多事，比如发ajax请求，进行DOM操作替换页面等。<br>            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;a href&#x3D;&quot;#&#x2F;first&quot;&gt;跳转到第一个页面&lt;&#x2F;a&gt;</span><br><span class="line">    &lt;a href&#x3D;&quot;#&#x2F;secend&quot;&gt;跳转到第二个页面&lt;&#x2F;a&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;content&quot;&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        function $ (ele) &#123;return document.querySelector(ele)&#125;</span><br><span class="line">        &#x2F;&#x2F; 通过window.onhashchange来获取路由变化</span><br><span class="line">        window.onhashchange &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">            &#x2F;&#x2F; 可以通过location.hash拿到hash值</span><br><span class="line">            let url &#x3D; location.hash.slice(1)</span><br><span class="line">            console.log(url)</span><br><span class="line">            switch (url) &#123;</span><br><span class="line">                case &#39;&#x2F;first&#39;:</span><br><span class="line">                    $(&#39;.content&#39;).innerHTML &#x3D; &#39;&lt;h1&gt;这是第一个页面&lt;&#x2F;h1&gt;&#39;</span><br><span class="line">                    break;</span><br><span class="line">                case &#39;&#x2F;secend&#39;:</span><br><span class="line">                    $(&#39;.content&#39;).innerHTML &#x3D; &#39;&lt;h1&gt;这是第二个页面&lt;&#x2F;h1&gt;&#39;</span><br><span class="line">                    break;</span><br><span class="line">                default:</span><br><span class="line">                    $(&#39;.content&#39;).innerHTML &#x3D; &#39;&lt;h1&gt;默认&lt;&#x2F;h1&gt;&#39;</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure></p>
-<h3 id="history模式"><a href="#history模式" class="headerlink" title="history模式"></a>history模式</h3><p>hisroty模式相比hash模式，是一种比较新的路由模式<br>原理就是利用history.pushState(state,null,url)更新浏览器url地址，这会触发 popstate 事件<br>            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;a href&#x3D;&quot;#1&quot;&gt;first&lt;&#x2F;a&gt;</span><br><span class="line">    &lt;a href&#x3D;&quot;#2&quot;&gt;secend&lt;&#x2F;a&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;content&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script type&#x3D;&#39;text&#x2F;js-template&#39; class&#x3D;&quot;test&quot; id&#x3D;&quot;1&quot;&gt;第一页&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script type&#x3D;&#39;text&#x2F;js-template&#39; class&#x3D;&quot;test&quot; id&#x3D;&quot;2&quot;&gt;第二页&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">        &#x2F;&#x2F;1、获取元素</span><br><span class="line">        let aElm&#x3D;document.getElementsByTagName(&#39;a&#39;);</span><br><span class="line">        let array&#x3D;[].slice.call(aElm)</span><br><span class="line">        let content&#x3D;document.getElementById(&#39;content&#39;)</span><br><span class="line">        &#x2F;&#x2F;2、特性检测，如果支持history模式就用history，否则用hash模式</span><br><span class="line">        if (history&amp;&amp;history.pushState) &#123;</span><br><span class="line">            window.addEventListener(&#39;popstate&#39;,handlePage);</span><br><span class="line">            &#x2F;&#x2F;劫持a元素的click事件，主要是为了更新history.state的状态以及替换url，当点击url跳转时先执行onclick再触发popstate</span><br><span class="line">            array.forEach(function(v)&#123;</span><br><span class="line">                v.onclick&#x3D;function(event)&#123;</span><br><span class="line">                    var path&#x3D;event.target.hash.split(&quot;#&quot;)[1];</span><br><span class="line">                    var newUrl&#x3D;location.href.split(&#39;#&#39;)[0]+&#39;\&#x2F;&#39;+path;</span><br><span class="line">                    history.pushState(&#123;current:path&#125;,null,newUrl)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            window.addEventListener(&#39;hashchange&#39;,handlePage);</span><br><span class="line">        &#125;</span><br><span class="line">            &#x2F;&#x2F;3、统一使用handlePage作为两种模式的事件处理器</span><br><span class="line">        function handlePage()&#123;</span><br><span class="line">            if (history&amp;&amp;history.pushState) &#123;</span><br><span class="line">                var current&#x3D;history.state&amp;&amp;history.state.current||&#39;1&#39;;</span><br><span class="line">                render(current)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                var hash&#x3D;location.hash||&#39;#1&#39;;</span><br><span class="line">                render(hash,true)</span><br><span class="line">            &#125;</span><br><span class="line">            function render(selector,isHashMode)&#123;</span><br><span class="line">                var hashMode&#x3D;isHashMode&amp;&amp;true;</span><br><span class="line">                var select&#x3D;&#39;&#39;;</span><br><span class="line">                if (hashMode) &#123;</span><br><span class="line">                    select&#x3D;selector.split(&#39;#&#39;)[1];</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    select&#x3D;selector||history.state.current</span><br><span class="line">                &#125;</span><br><span class="line">                var toPage&#x3D;document.getElementById(select);</span><br><span class="line">                content.innerHTML&#x3D;toPage.innerHTML;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        handlePage();</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="pushState的第三个参数url是不能跨域的"><a href="#pushState的第三个参数url是不能跨域的" class="headerlink" title="pushState的第三个参数url是不能跨域的"></a>pushState的第三个参数url是不能跨域的</h4><p>纯粹的用JS调用pushState并不能触发popstate事件，只有浏览器的前进返回或者用户点击页面操作才能触发popstate。若想监听到所有的 pushState，则可以采用自定义事件的方法：<br>            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;创建全局事件</span><br><span class="line">var _wr &#x3D; function(type) &#123;</span><br><span class="line">var orig &#x3D; history[type];</span><br><span class="line">return function() &#123;</span><br><span class="line">    var rv &#x3D; orig.apply(this, arguments);</span><br><span class="line">    var e &#x3D; new Event(type);</span><br><span class="line">    e.arguments &#x3D; arguments;</span><br><span class="line">    window.dispatchEvent(e);</span><br><span class="line">    return rv;</span><br><span class="line">&#125;;</span><br><span class="line">&#125;;</span><br><span class="line">&#x2F;&#x2F;重写方法</span><br><span class="line">history.pushState &#x3D; _wr(&#39;pushState&#39;);</span><br><span class="line">history.replaceState &#x3D; _wr(&#39;replaceState&#39;);</span><br><span class="line">&#x2F;&#x2F;实现监听</span><br><span class="line">window.addEventListener(&#39;replaceState&#39;, function(e) &#123;</span><br><span class="line">console.log(&#39;THEY DID IT AGAIN! replaceState 111111&#39;);</span><br><span class="line">&#125;);</span><br><span class="line">window.addEventListener(&#39;pushState&#39;, function(e) &#123;</span><br><span class="line">console.log(&#39;THEY DID IT AGAIN! pushState 2222222&#39;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>history 模式刷新页面无效问题(webpack设置 publicPath 必须为绝对路径才行)<br>            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">location &#x2F;&#123;</span><br><span class="line">    index  index.html index.htm;</span><br><span class="line">    if (!-e $request_filename) &#123;</span><br><span class="line">        rewrite ^&#x2F;(.*) &#x2F;index.html last;</span><br><span class="line">        break;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>部分转载://<a href="http://www.jianshu.com/p/c9de1924d215" target="_blank" rel="noopener">www.jianshu.com/p/c9de1924d215</a><br>来源：简书</p>
+          <h2 id="H5-路由的两种实现"><a href="#H5-路由的两种实现" class="headerlink" title="H5 路由的两种实现"></a>H5 路由的两种实现</h2><h3 id="hash模式"><a href="#hash模式" class="headerlink" title="hash模式"></a>hash模式</h3><p>如果a标签的href属性以”#”开头，那么当点击这个a标签时就会触发hashchange事件，在该事件处理函数中可以做很多事，比如发ajax请求，进行DOM操作替换页面等。</p>
+<pre><code>&lt;body&gt;
+    &lt;a href=&quot;#/first&quot;&gt;跳转到第一个页面&lt;/a&gt;
+    &lt;a href=&quot;#/secend&quot;&gt;跳转到第二个页面&lt;/a&gt;
+    &lt;div class=&quot;content&quot;&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        function $ (ele) {return document.querySelector(ele)}
+        // 通过window.onhashchange来获取路由变化
+        window.onhashchange = () =&gt; {
+            // 可以通过location.hash拿到hash值
+            let url = location.hash.slice(1)
+            console.log(url)
+            switch (url) {
+                case &apos;/first&apos;:
+                    $(&apos;.content&apos;).innerHTML = &apos;&lt;h1&gt;这是第一个页面&lt;/h1&gt;&apos;
+                    break;
+                case &apos;/secend&apos;:
+                    $(&apos;.content&apos;).innerHTML = &apos;&lt;h1&gt;这是第二个页面&lt;/h1&gt;&apos;
+                    break;
+                default:
+                    $(&apos;.content&apos;).innerHTML = &apos;&lt;h1&gt;默认&lt;/h1&gt;&apos;
+                    break;
+            }
+        }
+    &lt;/script&gt;
+&lt;/body&gt;                </code></pre><h3 id="history模式"><a href="#history模式" class="headerlink" title="history模式"></a>history模式</h3><p>hisroty模式相比hash模式，是一种比较新的路由模式<br>原理就是利用history.pushState(state,null,url)更新浏览器url地址，这会触发 popstate 事件</p>
+<pre><code>&lt;body&gt;
+    &lt;a href=&quot;#1&quot;&gt;first&lt;/a&gt;
+    &lt;a href=&quot;#2&quot;&gt;secend&lt;/a&gt;
+    &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+    &lt;script type=&apos;text/js-template&apos; class=&quot;test&quot; id=&quot;1&quot;&gt;第一页&lt;/script&gt;
+    &lt;script type=&apos;text/js-template&apos; class=&quot;test&quot; id=&quot;2&quot;&gt;第二页&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        //1、获取元素
+        let aElm=document.getElementsByTagName(&apos;a&apos;);
+        let array=[].slice.call(aElm)
+        let content=document.getElementById(&apos;content&apos;)
+        //2、特性检测，如果支持history模式就用history，否则用hash模式
+        if (history&amp;&amp;history.pushState) {
+            window.addEventListener(&apos;popstate&apos;,handlePage);
+            //劫持a元素的click事件，主要是为了更新history.state的状态以及
+            //替换url，当点击url跳转时先执行onclick再触发popstate
+            array.forEach(function(v){
+                v.onclick=function(event){
+                    var path=event.target.hash.split(&quot;#&quot;)[1];
+                    var newUrl=location.href.split(&apos;#&apos;)[0]+&apos;\/&apos;+path;
+                    history.pushState({current:path},null,newUrl)
+                }
+            })
+        } else {
+            window.addEventListener(&apos;hashchange&apos;,handlePage);
+        }
+            //3、统一使用handlePage作为两种模式的事件处理器
+        function handlePage(){
+            if (history&amp;&amp;history.pushState) {
+                var current=history.state&amp;&amp;history.state.current||&apos;1&apos;;
+                render(current)
+            } else {
+                var hash=location.hash||&apos;#1&apos;;
+                render(hash,true)
+            }
+            function render(selector,isHashMode){
+                var hashMode=isHashMode&amp;&amp;true;
+                var select=&apos;&apos;;
+                if (hashMode) {
+                    select=selector.split(&apos;#&apos;)[1];
+                } else {
+                    select=selector||history.state.current
+                }
+                var toPage=document.getElementById(select);
+                content.innerHTML=toPage.innerHTML;
+            }
+        }
+        handlePage();
+    &lt;/script&gt;
+&lt;/body&gt;</code></pre><h4 id="pushState的第三个参数url是不能跨域的"><a href="#pushState的第三个参数url是不能跨域的" class="headerlink" title="pushState的第三个参数url是不能跨域的"></a>pushState的第三个参数url是不能跨域的</h4><p>纯粹的用JS调用pushState并不能触发popstate事件，只有浏览器的前进返回或者用户点击页面操作才能触发popstate。若想监听到所有的 pushState，则可以采用自定义事件的方法：</p>
+<pre><code>//创建全局事件
+var _wr = function(type) {
+var orig = history[type];
+return function() {
+    var rv = orig.apply(this, arguments);
+    var e = new Event(type);
+    e.arguments = arguments;
+    window.dispatchEvent(e);
+    return rv;
+};
+};
+//重写方法
+history.pushState = _wr(&apos;pushState&apos;);
+history.replaceState = _wr(&apos;replaceState&apos;);
+//实现监听
+window.addEventListener(&apos;replaceState&apos;, function(e) {
+console.log(&apos;THEY DID IT AGAIN! replaceState 111111&apos;);
+});
+window.addEventListener(&apos;pushState&apos;, function(e) {
+console.log(&apos;THEY DID IT AGAIN! pushState 2222222&apos;);
+});</code></pre><h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>history 模式刷新页面无效问题(webpack设置 publicPath 必须为绝对路径才行)</p>
+<pre><code>location /{
+    index  index.html index.htm;
+    if (!-e $request_filename) {
+        rewrite ^/(.*) /index.html last;
+        break;
+    }
+}</code></pre><p>部分转载://<a href="http://www.jianshu.com/p/c9de1924d215" target="_blank" rel="noopener">www.jianshu.com/p/c9de1924d215</a><br>来源：简书</p>
 
         </div>
         <!-- .entry-content -->
@@ -429,6 +530,23 @@
       <!-- #post-## -->
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre full previous">
+          
+            <a href="/2020/04/23/vue%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://yolico.oss-cn-beijing.aliyuncs.com/article/article2.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://yolico.oss-cn-beijing.aliyuncs.com/article/article2.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                vue组件传值</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
         
         
       </section>
