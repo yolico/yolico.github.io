@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">archive_a: 2020/4 | yolico</title>
+  <title itemprop="name">vue调用pc摄像头完成拍照并上传 | yolico</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -351,117 +351,326 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 75px;">
-</div>
-<div id="content" class="site-content">
-  <div id="main">
-    <header class="page-header">
-      <h1 class="cat-title">
-      归档</h1>
-      <span class="cat-des">
-        <p>
-        Archives</p>
-      </span>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://yolico.oss-cn-beijing.aliyuncs.com/article/mediaDevices.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://yolico.oss-cn-beijing.aliyuncs.com/article/mediaDevices.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      vue调用pc摄像头完成拍照并上传</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="https://yolico.oss-cn-beijing.aliyuncs.com/yolico/avatar.png">
+          </a>
+        </span>
+        <span>
+          <a href="">yolico</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-7-21<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
-    <div id="main-part">
-      <article class="art">
-        <div class="art-main">
-          <div class="art-content">
-            <div id="archives">
-              <p style="text-align:right;">
-                [<span id="al_expand_collapse" style="cursor: s-resize;">
-                全部展开/收缩</span>
-              ]</p>
-              
-              
-              
-              
-              
-                
-                <h3 class="al_year">2020年</h3>
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      07月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2020/07/21/vue%E8%80%83%E8%AF%95%E7%AD%94%E9%A2%98%E5%8D%A1/">
-                          <span style="color:#0bf;">
-                          21日17:08:25</span>
-                          vue考试答题卡
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2020/07/21/vue%E8%B0%83%E7%94%A8pc%E6%91%84%E5%83%8F%E5%A4%B4%E5%AE%8C%E6%88%90%E6%8B%8D%E7%85%A7%E5%B9%B6%E4%B8%8A%E4%BC%A0/">
-                          <span style="color:#0bf;">
-                          21日16:28:52</span>
-                          vue调用pc摄像头完成拍照并上传
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
-              
-              
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      04月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2020/04/23/vue%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/">
-                          <span style="color:#0bf;">
-                          23日14:48:05</span>
-                          vue组件传值
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2020/04/20/H5%E8%B7%AF%E7%94%B1/">
-                          <span style="color:#0bf;">
-                          20日16:48:19</span>
-                          H5路由
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <p>话不多说,直接上代码<br>html部分</p>
+<pre><code>&lt;template&gt;
+    &lt;div class=&quot;curriculum-photo&quot;&gt;
+        &lt;div class=&quot;header&quot;&gt;
+        &lt;el-button size=&quot;mini&quot; @click=&quot;toBack&quot;&gt;返回&lt;/el-button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;content&quot;&gt;
+        &lt;!--canvas截取流--&gt;
+        &lt;canvas ref=&quot;canvas&quot; width=&quot;700&quot; height=&quot;600&quot;&gt;&lt;/canvas&gt;
+        &lt;!--图片展示--&gt;
+        &lt;video ref=&quot;video&quot; :class=&quot;isPhoto ? &apos;isPhoto&apos; : &apos;&apos;&quot; width=&quot;700&quot; height=&quot;600&quot; autoplay&gt;&lt;/video&gt;
+        &lt;div class=&quot;sub-btn&quot;&gt;
+            &lt;el-button size=&quot;mini&quot; type=&quot;primary&quot; @click=&quot;photograph&quot;&gt;拍照&lt;/el-button&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;</code></pre><p>js部分</p>
+<pre><code>callCamera () {
+  // H5调用电脑摄像头API
+  // navigator.mediaDevices.getUserMedia
+  navigator.mediaDevices.getUserMedia({
+    video: true
+  }).then(success =&gt; {
+    // 摄像头开启成功
+    this.$refs[&apos;video&apos;].srcObject = success
+    // 实时拍照效果
+    this.$refs[&apos;video&apos;].play()
+  }).catch(() =&gt; {
+    this.$alert(&apos;请使用具备摄像头功能设备进行观看&apos;, &apos;提示&apos;, {
+      confirmButtonText: &apos;确定&apos;,
+      showClose: false,
+      callback: action =&gt; {
+        this.toBack()
+      }
+    })
+  })
+  // 拍照
+photograph () {
+  // 降低video层级
+  this.isPhoto = true
+  let ctx = this.$refs[&apos;canvas&apos;].getContext(&apos;2d&apos;)
+  // 把当前视频帧内容渲染到canvas上
+  ctx.drawImage(this.$refs[&apos;video&apos;], 0, 0, 700, 600)
+  // 转base64格式、图片格式转换、图片质量压缩
+  let imgBase64 = this.$refs[&apos;canvas&apos;].toDataURL(&apos;image/jpeg&apos;, 1)
+  // 由字节转换为KB 判断大小
+  let str = imgBase64.replace(&apos;data:image/jpeg;base64,&apos;, &apos;&apos;)
+  // let strLength = str.length
+  // let fileLength = parseInt(strLength - (strLength / 8) * 2)
+  // console.log(str)
+  // 图片尺寸  用于判断
+  // let size = (fileLength / 1024).toFixed(2)
+  // 上传拍照信息  调用接口上传图片 .........
+  // 保存到本地
+  // let ADOM = document.createElement(&apos;a&apos;)
+  // ADOM.href = this.headImgSrc
+  // ADOM.download = new Date().getTime() + &apos;.jpeg&apos;
+  // ADOM.click()
+  // 上传到七牛云
+  var imgName = &apos;image/face/&apos; + new Date().getTime() + Math.floor(Math.random() * 100) + &apos;.jpg&apos;
+  imgName = btoa(imgName)
+  // 自定义key
+  let url = 地址 + &apos;/putb64/-1/key/&apos; + imgName
+  let xhr = new XMLHttpRequest()
+  let photoUrl = &apos;&apos;
+  xhr.open(&apos;POST&apos;, url, true)
+  xhr.setRequestHeader(&apos;Content-Type&apos;, &apos;application/octet-stream&apos;)
+  // 此处token是调用七牛云返回的token令牌
+  xhr.setRequestHeader(&apos;Authorization&apos;,
+    &apos;UpToken &apos; + this.token
+  )
+  xhr.send(str)
+  let that = this
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      let json3 = JSON.parse(xhr.responseText)
+      photoUrl = that.uploadUrl + json3.key
+      console.log(photoUrl)
+      // data.key就是key，图片地址在路径key里
+      // 这里则是需要将七牛云返回的地址传给后端,numId则是项目中需要的标识不需在意
+      sendPhoto({ imageUrl: photoUrl, numId: that.numId }).then(res =&gt; {
+        // console.log(res)
+        if (res.code === 0) {
+          // this.$emit(&apos;toVideo&apos;)
+          that.closeCamera()
+          that.isPhotoOk = false
+        } else {
+          that.$message({
+            type: &apos;error&apos;,
+            message: &apos;上传照片失败,请重试&apos;
+          })
+          return false
+        }
+      })
+    }
+    // else {
+    //   that.$message(&apos;上传照片失败,请重试&apos;)
+    // }
+  }
+// 关闭摄像头
+closeCamera () {
+  if (!this.$refs[&apos;video&apos;].srcObject) return
+  let stream = this.$refs[&apos;video&apos;].srcObject
+  let tracks = stream.getTracks()
+  tracks.forEach(track =&gt; {
+    track.stop()
+  })
+  this.$refs[&apos;video&apos;].srcObject = null
+}</code></pre><p>css部分</p>
+<pre><code>&lt;style lang=&quot;scss&quot; scoped&gt;
+    .header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    .title {
+        font-size: 20px;
+        margin-left: 20px;
+    }
+    }
+    .content {
+    width: 90%;
+    height: 760px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto 0;
+    .video {
+        width: 69%;
+        height: 100%;
+        background-color: #000;
+        video {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        }
+    }
+    .catalogue {
+        width: 30%;
+        height: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+        background-color: #f2f2f2;
+        .title {
+        height: 40px;
+        line-height: 40px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        border-bottom: 1px solid #ccc;
+        }
+        ul {
+        font-size: 16px;
+        line-height: 30px;
+        height: 690px;
+        overflow-y: auto;
+        li {
+            display: flex;
+            justify-content: space-between;
+            span {
+            &amp;:last-of-type {
+                color: #0000FE;
+                &amp;:hover {
+                cursor: pointer;
+                }
+            }
+            }
+        }
+        }
+    }
+    }
+    .contentPhoto {
+    width: 100%;
+    height: 600px;
+    canvas {
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    video {
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        object-fit: fill;
+        &amp;.isPhoto {
+        z-index: -1;
+        }
+    }
+    .sub-btn {
+        position: absolute;
+        top: 660px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    }
+    &lt;/style&gt;</code></pre><p>其中可能部分没有写完整,但是核心代码都在这上面了==</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://yolico.oss-cn-beijing.aliyuncs.com/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://yolico.oss-cn-beijing.aliyuncs.com/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
             </div>
           </div>
         </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
       </article>
-    </div>
-  </div>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/07/21/vue%E8%80%83%E8%AF%95%E7%AD%94%E9%A2%98%E5%8D%A1/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://yolico.oss-cn-beijing.aliyuncs.com/article/test.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://yolico.oss-cn-beijing.aliyuncs.com/article/test.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                vue考试答题卡</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/04/23/vue%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://yolico.oss-cn-beijing.aliyuncs.com/article/article2.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://yolico.oss-cn-beijing.aliyuncs.com/article/article2.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                vue组件传值</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz",
+        appKey: "mgOpfzbkHYqU92CV4IDlAUHQ",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="https://yolico.oss-cn-beijing.aliyuncs.com/yolico/avatar.png" itemprop="image" alt="yolico" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author">yolico</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>一个正在努力的人</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
 
     </div>    
     <div class="ins-search">

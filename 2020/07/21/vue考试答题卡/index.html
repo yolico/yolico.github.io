@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">archive_a: 2020/4 | yolico</title>
+  <title itemprop="name">vue考试答题卡 | yolico</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -351,117 +351,492 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 75px;">
-</div>
-<div id="content" class="site-content">
-  <div id="main">
-    <header class="page-header">
-      <h1 class="cat-title">
-      归档</h1>
-      <span class="cat-des">
-        <p>
-        Archives</p>
-      </span>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://yolico.oss-cn-beijing.aliyuncs.com/article/test.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://yolico.oss-cn-beijing.aliyuncs.com/article/test.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      vue考试答题卡</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="https://yolico.oss-cn-beijing.aliyuncs.com/yolico/avatar.png">
+          </a>
+        </span>
+        <span>
+          <a href="">yolico</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-7-21<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
-    <div id="main-part">
-      <article class="art">
-        <div class="art-main">
-          <div class="art-content">
-            <div id="archives">
-              <p style="text-align:right;">
-                [<span id="al_expand_collapse" style="cursor: s-resize;">
-                全部展开/收缩</span>
-              ]</p>
-              
-              
-              
-              
-              
-                
-                <h3 class="al_year">2020年</h3>
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      07月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2020/07/21/vue%E8%80%83%E8%AF%95%E7%AD%94%E9%A2%98%E5%8D%A1/">
-                          <span style="color:#0bf;">
-                          21日17:08:25</span>
-                          vue考试答题卡
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2020/07/21/vue%E8%B0%83%E7%94%A8pc%E6%91%84%E5%83%8F%E5%A4%B4%E5%AE%8C%E6%88%90%E6%8B%8D%E7%85%A7%E5%B9%B6%E4%B8%8A%E4%BC%A0/">
-                          <span style="color:#0bf;">
-                          21日16:28:52</span>
-                          vue调用pc摄像头完成拍照并上传
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
-              
-              
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      04月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2020/04/23/vue%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/">
-                          <span style="color:#0bf;">
-                          23日14:48:05</span>
-                          vue组件传值
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2020/04/20/H5%E8%B7%AF%E7%94%B1/">
-                          <span style="color:#0bf;">
-                          20日16:48:19</span>
-                          H5路由
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <p>还是一样先上代码,具体在代码中有注释<br>html部分</p>
+<pre><code>&lt;template&gt;
+&lt;d2-container&gt;
+    &lt;div class=&quot;content&quot;&gt;
+    &lt;!-- 基本信息区域 --&gt;
+    &lt;div class=&quot;title&quot;&gt;答题&lt;/div&gt;
+    &lt;div class=&quot;little-title&quot; v-if=&quot;showSub &lt; Slength + 1&quot;&gt;文字单选题( {{showSub}}/{{Slength}} ｜ 共{{Slength}}题 )&lt;span&gt;用时：00:00:{{time1}}&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;little-title&quot; v-else-if=&quot;showSub - Slength &lt; Mlength + 1&quot;&gt;文字多选题( {{showSub - Slength}}/{{Mlength}} ｜ 共{{Mlength}}题 )&lt;span&gt;用时：00:00:{{time1}}&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;little-title&quot; v-else-if=&quot;showSub - Slength -  Mlength&lt; Rlength + 1&quot;&gt;判断题( {{showSub - Slength - Mlength}}/{{Rlength}} ｜ 共{{Rlength}}题 )&lt;span&gt;用时：00:00:{{time1}}&lt;/span&gt;&lt;/div&gt;
+    &lt;!-- 题目区域 --&gt;
+    &lt;div class=&quot;main&quot;&gt;
+    &lt;!-- 题目区域 --&gt;
+        &lt;div class=&quot;subject&quot;&gt;
+        &lt;!-- 单选题 --&gt;
+        &lt;ul v-if=&quot;showSub &lt; Slength + 1&quot;&gt;
+            &lt;li v-for=&quot;(sitem , index) in single&quot; :key=&quot;index&quot; v-if=&quot;showSub === index + 1&quot;&gt;
+            &lt;div class=&quot;subject-title&quot;&gt;
+                {{index + 1}} , {{sitem.content}} ( )
+            &lt;/div&gt;
+            &lt;el-radio-group v-model=&quot;sitem.own&quot; class=&quot;subject-select&quot;&gt;
+                &lt;el-radio :label=&quot;s.option&quot; v-for=&quot;(s ,index) in sitem.options&quot; :key=&quot;index&quot;&gt;{{s.option}}. {{s.content}}&lt;/el-radio&gt;
+            &lt;/el-radio-group&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;!-- 多选题 --&gt;
+        &lt;ul v-else-if=&quot;showSub - Slength &lt; Mlength + 1&quot;&gt;
+            &lt;li v-for=&quot;(mitem , index) in multiple&quot; :key=&quot;index&quot; v-if=&quot;showSub - Slength === index + 1&quot;&gt;
+            &lt;div class=&quot;subject-title&quot;&gt;
+                {{index + 1}} , {{mitem.content}} ( )
+            &lt;/div&gt;
+            &lt;!-- &lt;el-radio-group v-model=&quot;radio&quot; class=&quot;subject-select&quot;&gt;
+                &lt;el-radio v-model=&quot;radio&quot; :label=&quot;m.id&quot; v-for=&quot;(m ,index) in mitem.optionLists&quot; :key=&quot;index&quot;&gt;{{m.option}}. {{m.content}}&lt;/el-radio&gt;
+            &lt;/el-radio-group&gt; --&gt;
+            &lt;el-checkbox-group v-model=&quot;mitem.own&quot; class=&quot;subject-select&quot; @change=&quot;Msbtn(mitem.id)&quot;&gt;
+                &lt;el-checkbox :label=&quot;m.option&quot; v-for=&quot;(m ,index) in mitem.options&quot; :key=&quot;index&quot;&gt;{{m.option}}. {{m.content}}&lt;/el-checkbox&gt;
+            &lt;/el-checkbox-group&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;!-- 判断题 --&gt;
+        &lt;ul v-else-if=&quot;showSub - Slength -  Mlength &lt; Rlength + 1&quot;&gt;
+            &lt;li v-for=&quot;(ritem , index) in recognized&quot; :key=&quot;index&quot; v-if=&quot;showSub - Slength -  Mlength === index + 1&quot;&gt;
+            &lt;div class=&quot;subject-title&quot;&gt;
+                {{index + 1}} , {{ritem.content}} ( )
+            &lt;/div&gt;
+            &lt;el-radio-group v-model=&quot;ritem.own&quot; class=&quot;subject-select&quot; @change=&quot;Rsbtn(ritem.id)&quot;&gt;
+                &lt;el-radio label=&quot;0&quot;&gt;错误&lt;/el-radio&gt;
+                &lt;el-radio label=&quot;1&quot;&gt;正确&lt;/el-radio&gt;
+            &lt;/el-radio-group&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class=&quot;btn&quot;&gt;
+            &lt;el-button class=&quot;left&quot; type=&quot;primary&quot; @click=&quot;lastTime&quot; v-if=&quot;showSub &gt; 1&quot;&gt;上一题&lt;/el-button&gt;
+            &lt;el-button class=&quot;right&quot; type=&quot;primary&quot; @click=&quot;anotherTime&quot; v-if=&quot;showSub - Slength - Mlength - Rlength &lt; 0&quot;&gt;下一题&lt;/el-button&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- 答题卡区域 --&gt;
+        &lt;div class=&quot;answerSheet&quot;&gt;
+        &lt;div class=&quot;singleChoiceBox&quot;&gt;
+            &lt;div class=&quot;answerTitle&quot;&gt;单选题&lt;/div&gt;
+            &lt;ul&gt;
+            &lt;!-- :style=&quot;{ &apos;backgroundColor&apos;:single[item].own  ? &apos;blue&apos;:&apos;&apos;}&quot; --&gt;
+            &lt;li class=&quot;itm&quot; v-for=&quot;item in Slength&quot; :key=&quot;item&quot; @click=&quot;sBtn(item)&quot; :style=&quot;{ &apos;backgroundColor&apos; : single[item - 1].own  ? &apos;skyblue&apos;:&apos;&apos;}&quot;&gt;{{item}}&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;multipleChoiceBox&quot;&gt;
+            &lt;div class=&quot;answerTitle&quot;&gt;多选题&lt;/div&gt;
+            &lt;ul&gt;
+            &lt;li class=&quot;itm&quot; v-for=&quot;item in Mlength&quot; :key=&quot;item&quot; @click=&quot;mBtn(item)&quot; :style=&quot;{ &apos;backgroundColor&apos; : multiple[item - 1].own.length  ? &apos;skyblue&apos;:&apos;&apos;}&quot;&gt;{{item}}&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;recognizedChoiceBox&quot;&gt;
+            &lt;div class=&quot;answerTitle&quot;&gt;判断题&lt;/div&gt;
+            &lt;ul&gt;
+            &lt;li class=&quot;itm&quot; v-for=&quot;item in Rlength&quot; :key=&quot;item&quot; @click=&quot;rBtn(item)&quot; :style=&quot;{ &apos;backgroundColor&apos; : recognized[item - 1].own  ? &apos;skyblue&apos;:&apos;&apos;}&quot;&gt;{{item}}&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;!-- 交卷 --&gt;
+        &lt;div class=&quot;handin&quot;&gt;
+            &lt;el-button type=&quot;primary&quot; @click=&quot;handin&quot;&gt;交卷&lt;/el-button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/d2-container&gt;
+&lt;/template&gt;</code></pre><p>js部分</p>
+<pre><code>export default {
+        name: &apos;test&apos;,
+        data () {
+            return {
+            // 题目显示
+            showSub: 1,
+            // 多选题
+            multiple: [],
+            Mlength: &apos;&apos;,
+            // 单选题
+            single: [],
+            Slength: &apos;&apos;,
+            // 判断题
+            recognized: [],
+            Rlength: &apos;&apos;,
+            // 提交的答案
+            lists: []
+            }
+        },
+        computed: {
+            ...mapState(&apos;d2admin&apos;, {
+            // 考试订单id
+            exId: state =&gt; state.exam.exId,
+            // 考试课程id
+            coId: state =&gt; state.exam.coId
+            })
+        },
+        created () {
+            // this.countDown()
+            this.getTM()
+        },
+        methods: {
+            ...mapMutations(&apos;d2admin/exam&apos;, [
+            &apos;savePostId&apos;
+            ]),
+            // 倒计时
+            countDown () {
+            let that = this
+            this.timer = setInterval(() =&gt; {
+                that.time1--
+                if (that.time1 &lt; 1) {
+                // alert(&apos;您的答题时间已到,现在为您进入下一题&apos;)
+                clearInterval(that.timer)
+                }
+            }, 1000)
+            },
+            // 交卷
+            handin () {
+            // 处理单选题
+            this.single.map(stm =&gt; {
+                let sobj = {}
+                sobj.answer = stm.own
+                sobj.id = stm.id
+                this.lists.push(sobj)
+            })
+            // 处理多选题
+            this.multiple.map(mtm =&gt; {
+                let mobj = {}
+                mobj.answer = mtm.own.join()
+                mobj.id = mtm.id
+                this.lists.push(mobj)
+            })
+            // 处理判断题
+            this.recognized.map(rtm =&gt; {
+                let robj = {}
+                robj.answer = rtm.own
+                robj.id = rtm.id
+                this.lists.push(robj)
+            })
+            sendTest({ courseInfoId: this.coId, lists: this.lists, orderId: this.exId }).then(res =&gt; {
+                if (res.code === 0) {
+                this.savePostId(res.data)
+                this.$emit(&apos;toHandin&apos;)
+                }
+            }).catch(() =&gt; {
+                return false
+            })
+            },
+            // 初始化题目(主要在于处理后端返回的数据格式,将其处理成适合渲染题目格式的数据结构)
+            getTM () {
+            getTest(this.coId).then(res =&gt; {
+                if (res.code === 0) {
+                // 处理多选
+                this.Mlength = res.data.multipleChoice.length
+                res.data.multipleChoice.map((item, index) =&gt; {
+                    let obj = {}
+                    // 题目id
+                    obj.id = item.id
+                    // 题目内容
+                    obj.content = item.content
+                    // 选项
+                    obj.options = item.optionLists
+                    // 选中的答案
+                    obj.own = []
+                    // 题目类型
+                    obj.type = &apos;m&apos;
+                    this.multiple.push(obj)
+                })
+                // 处理单选
+                this.Slength = res.data.singleChoice.length
+                res.data.singleChoice.map((item, index) =&gt; {
+                    let obj = {}
+                    // 题目id
+                    obj.id = item.id
+                    // 题目内容
+                    obj.content = item.content
+                    // 选项
+                    obj.options = item.optionLists
+                    // 选中的答案
+                    obj.own = &apos;&apos;
+                    // 题目类型
+                    obj.type = &apos;s&apos;
+                    this.single.push(obj)
+                })
+                // 处理判断
+                this.Rlength = res.data.recognizedChoice.length
+                res.data.recognizedChoice.map((item, index) =&gt; {
+                    let obj = {}
+                    // 题目id
+                    obj.id = item.id
+                    // 题目内容
+                    obj.content = item.content
+                    // 选项
+                    obj.options = item.optionLists
+                    // 选中的答案
+                    obj.own = &apos;&apos;
+                    // 题目类型
+                    obj.type = &apos;r&apos;
+                    this.recognized.push(obj)
+                })
+                }
+            }).catch(() =&gt; {
+                return false
+            })
+            },
+            // 单选题答案
+            Ssbtn (sum) {
+            this.testId = sum
+            },
+            // 多选题答案
+            Msbtn (mum) {
+            this.testId = mum
+            },
+            // 判断题答案
+            Rsbtn (rum) {
+            this.testId = rum
+            },
+            // 上一题
+            lastTime () {
+            this.showSub--
+            },
+            // 下一题
+            anotherTime () {
+            this.showSub++
+            },
+            // 答题卡相关跳转
+            sBtn (s) {
+            this.showSub = s
+            },
+            mBtn (m) {
+            this.showSub = m + this.Slength
+            },
+            rBtn (r) {
+            this.showSub = r + this.Slength + this.Mlength
+            }
+            }
+        }</code></pre><p>css部分</p>
+<pre><code>&lt;style lang=&quot;scss&quot; scoped&gt;
+.content {
+    padding: 30px;
+    .title {
+        font-size: 20px;
+        font-weight: 700;
+    }
+    .little-title {
+    margin-top: 30px;
+    span {
+        margin-left: 50px;
+    }
+    }
+    .main {
+    display: flex;
+    .subject {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        ul {
+        // flex: 1;
+        // height: 90%;
+        li {
+            .subject-title {
+            padding: 20px 0;
+            }
+            .el-radio-group,
+            .el-checkbox-group {
+            display: flex;
+            flex-direction: column;
+            .el-radio,
+            .el-checkbox {
+                padding: 10px 0;
+            }
+            }
+        }
+        }
+        .btn {
+        // height: 20%;
+        // width: 20%;
+        position: absolute;
+        // flex: 1;
+        bottom: -60px;
+        // display: flex;
+        // justify-content: center;
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+        }
+    }
+    .answerSheet {
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        // 单选题答题卡
+        .multipleChoiceBox {
+        .answerTitle {
+            font-size: 18px;
+            margin-left: 5px;
+        }
+        ul {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            .itm {
+            margin: 5px;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        }
+        }
+        // 多选题答题卡
+        .recognizedChoiceBox {
+        .answerTitle {
+            font-size: 18px;
+            margin-left: 5px;
+        }
+        ul {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            .itm {
+            margin: 5px;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        }
+        }
+        // 判断题答题卡
+        .singleChoiceBox {
+        .answerTitle {
+            font-size: 18px;
+            margin-left: 5px;
+        }
+        ul {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            .itm {
+            margin: 5px;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        }
+        }
+        .handin {
+        margin-top: 20px;
+        }
+    }
+    }
+}
+&lt;/style&gt;</code></pre>
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://yolico.oss-cn-beijing.aliyuncs.com/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://yolico.oss-cn-beijing.aliyuncs.com/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
             </div>
           </div>
         </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
       </article>
-    </div>
-  </div>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2020/07/21/vue%E8%B0%83%E7%94%A8pc%E6%91%84%E5%83%8F%E5%A4%B4%E5%AE%8C%E6%88%90%E6%8B%8D%E7%85%A7%E5%B9%B6%E4%B8%8A%E4%BC%A0/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://yolico.oss-cn-beijing.aliyuncs.com/article/mediaDevices.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://yolico.oss-cn-beijing.aliyuncs.com/article/mediaDevices.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                vue调用pc摄像头完成拍照并上传</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz",
+        appKey: "mgOpfzbkHYqU92CV4IDlAUHQ",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="https://yolico.oss-cn-beijing.aliyuncs.com/yolico/avatar.png" itemprop="image" alt="yolico" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author">yolico</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>一个正在努力的人</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
 
     </div>    
     <div class="ins-search">
