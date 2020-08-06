@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">archive_a: 2020/4 | yolico</title>
+  <title itemprop="name">vue中使用七牛云sdk断点上传 | yolico</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -351,143 +351,224 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 75px;">
-</div>
-<div id="content" class="site-content">
-  <div id="main">
-    <header class="page-header">
-      <h1 class="cat-title">
-      归档</h1>
-      <span class="cat-des">
-        <p>
-        Archives</p>
-      </span>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://yolico.oss-cn-beijing.aliyuncs.com/article/article3.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://yolico.oss-cn-beijing.aliyuncs.com/article/article3.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      vue中使用七牛云sdk断点上传</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="https://yolico.oss-cn-beijing.aliyuncs.com/yolico/avatar.png">
+          </a>
+        </span>
+        <span>
+          <a href="">yolico</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-8-6<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
-    <div id="main-part">
-      <article class="art">
-        <div class="art-main">
-          <div class="art-content">
-            <div id="archives">
-              <p style="text-align:right;">
-                [<span id="al_expand_collapse" style="cursor: s-resize;">
-                全部展开/收缩</span>
-              ]</p>
-              
-              
-              
-              
-              
-                
-                <h3 class="al_year">2020年</h3>
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      08月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2020/08/06/vue%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91sdk%E6%96%AD%E7%82%B9%E4%B8%8A%E4%BC%A0/">
-                          <span style="color:#0bf;">
-                          06日17:13:54</span>
-                          vue中使用七牛云sdk断点上传
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
-              
-              
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      07月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2020/07/21/vue%E8%80%83%E8%AF%95%E7%AD%94%E9%A2%98%E5%8D%A1/">
-                          <span style="color:#0bf;">
-                          21日17:08:25</span>
-                          vue考试答题卡
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2020/07/21/vue%E8%B0%83%E7%94%A8pc%E6%91%84%E5%83%8F%E5%A4%B4%E5%AE%8C%E6%88%90%E6%8B%8D%E7%85%A7%E5%B9%B6%E4%B8%8A%E4%BC%A0/">
-                          <span style="color:#0bf;">
-                          21日16:28:52</span>
-                          vue调用pc摄像头完成拍照并上传
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
-              
-              
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      04月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2020/04/23/vue%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/">
-                          <span style="color:#0bf;">
-                          23日14:48:05</span>
-                          vue组件传值
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2020/04/20/H5%E8%B7%AF%E7%94%B1/">
-                          <span style="color:#0bf;">
-                          20日16:48:19</span>
-                          H5路由
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <p>还是一样先上代码,具体在代码中有注释<br>html部分</p>
+<pre><code>&lt;template&gt;
+    &lt;d2-container&gt;
+        &lt;!-- &lt;el-progress :text-inside=&quot;true&quot; :stroke-width=&quot;26&quot; :percentage=&quot;70&quot;&gt;&lt;/el-progress&gt; --&gt;
+        &lt;el-progress :text-inside=&quot;true&quot; :stroke-width=&quot;30&quot; :percentage=&quot;percent&quot;&gt;&lt;/el-progress&gt;
+    &lt;div id=&quot;sendBefore&quot;&gt;
+        &lt;p&gt;上传视频&lt;/p&gt;
+        &lt;input id=&quot;videoForm&quot; type=&quot;file&quot; @change=&quot;upload&quot; ref=&quot;video&quot; /&gt;
+        &lt;el-button @click=&quot;star&quot; type=&quot;primary&quot; v-if=&quot;zanting === 1&quot;&gt;开始上传&lt;/el-button&gt;
+        &lt;el-button @click=&quot;star&quot; type=&quot;primary&quot; v-else-if=&quot;zanting === 2&quot;&gt;暂停上传&lt;/el-button&gt;
+        &lt;el-button @click=&quot;star&quot; type=&quot;primary&quot; v-else-if=&quot;zanting === 3&quot;&gt;继续上传&lt;/el-button&gt;
+    &lt;/div&gt;
+    &lt;/d2-container&gt;
+&lt;/template&gt;</code></pre><p>实现后<br><img src="https://yolico.oss-cn-beijing.aliyuncs.com/article/sc.jpg" alt="vuex图解"></p>
+<p>js部分</p>
+<pre><code>import * as qiniu from &apos;qiniu-js&apos; // 引入七牛云sdk
+import { uploadFile } from &apos;@/api/public&apos; // 此为从后端获取token
+
+methods: {
+star () {
+  let that = this
+  let finishedAttr = []
+  let compareChunks = []
+  const observer = {
+    next (res) {
+      console.log(res, &apos;next&apos;)
+      // console.log(Math.ceil(res.total.percent))
+      that.percent = Math.ceil(res.total.percent)
+      var chunks = res.chunks || []
+      // 这里对每个chunk更新进度，并记录已经更新好的避免重复更新，同时对未开始更新的跳过
+      for (var i = 0; i &lt; chunks.length; i++) {
+        if (chunks[i].percent === 0 || finishedAttr[i]) {
+          continue
+        }
+        if (compareChunks[i].percent === chunks[i].percent) {
+          continue
+        }
+        if (chunks[i].percent === 100) {
+          finishedAttr[i] = true
+        }
+        that.percent = Math.ceil(res.total.percent)
+      }
+      that.percent = Math.ceil(res.total.percent)
+      compareChunks = chunks
+    },
+    // 错误
+    error (err) {
+      console.log(err, &apos;err&apos;)
+      that.$message({
+        type: &apos;error&apos;,
+        $message: &apos;上传出错&apos;
+      })
+    },
+    // 成功
+    complete (res) {
+      console.log(res)
+      // 返回的视频名字
+      that.videoName = res.key
+      // url 这里就是上传成功后返回的hash+key,然后用你公司的文件存储地址拼上这个就好了
+      that.videoUrl = that.uploadUrl + res.hash
+    }
+  }
+  //   开始上传
+  if (this.zanting === 1) {
+    // 开始上传
+    this.stopUp = this.starUp.subscribe(observer)
+    this.zanting = 2
+  } else if (this.zanting === 2) {
+    this.stopUp.unsubscribe()
+    this.zanting = 3
+  } else if (this.zanting === 3) {
+    this.starUp.subscribe(observer)
+    this.zanting = 2
+  }
+  // this.starUp.subscribe(observer)
+},
+upload (event) {
+// 文件
+  let file = event.target.files[0]
+  // token
+  let token = this.token
+  // 给后端名字
+  this.videoName = &apos;video/course/&apos; + file.name.split(&apos;.&apos;)[0]
+  // uuid这里区分视频,采用uuid命名
+  const s = []
+  const hexDigits = &apos;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&apos;
+  for (let i = 0; i &lt; 16; i++) {
+    s[i] = hexDigits.substr(Math.floor(Math.random() * 0x20), 1)
+  }
+  // 七牛云名字
+  let key = &apos;video/course/&apos; + s.join(&apos;&apos;)
+  // this.videoData.key = &apos;video/course/&apos; + s.join(&apos;&apos;)
+  let config = {
+      // 配置可以直接看七牛云文档
+    useCdnDomain: true,
+    region: qiniu.region.z2,
+    // 出错重试
+    retryCount: 3,
+    // md5检验
+    checkByMD5: true,
+    // 分片大小
+    chunkSize: 4
+  }
+
+  let putExtra = {
+    fname: key,
+    mimeType: &apos;video/mp4&apos;
+  }
+  this.starUp = qiniu.upload(file, key, token, putExtra, config)
+}</code></pre><p>  }</p>
+<p>css 样式部分就不调了<br>其中vue调用七牛云sdk会出现一个问题<br>Vue中使用七牛云上传报错o.upload.addEventListener is not a function以及其他报错问题<br>这是由于vue-cli中的mockjs模块全局使用了MockXMLHttpRequest，而七牛sdk本身使用的是XMLHttpRequest按照标准来的，但是vue-cli中的mockjs模块硬是把XMLHttpRequest自己封装一下导致冲突，会导致对象属性访问不到，删除mockjs模块即可</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://yolico.oss-cn-beijing.aliyuncs.com/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://yolico.oss-cn-beijing.aliyuncs.com/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
             </div>
           </div>
         </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
       </article>
-    </div>
-  </div>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2020/07/21/vue%E8%80%83%E8%AF%95%E7%AD%94%E9%A2%98%E5%8D%A1/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://yolico.oss-cn-beijing.aliyuncs.com/article/test.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://yolico.oss-cn-beijing.aliyuncs.com/article/test.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                vue考试答题卡</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz",
+        appKey: "mgOpfzbkHYqU92CV4IDlAUHQ",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="https://yolico.oss-cn-beijing.aliyuncs.com/yolico/avatar.png" itemprop="image" alt="yolico" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author">yolico</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>一个正在努力的人</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
 
     </div>    
     <div class="ins-search">
